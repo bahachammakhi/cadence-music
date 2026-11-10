@@ -3,7 +3,7 @@ import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 const html = readFileSync("out/index.html", "utf8");
 const prefix = process.env.NEXT_PUBLIC_BASE_PATH || "";
-const origin = "https://cadence.bmerce.com";
+const origin = "https://cadence.bmerce.net";
 let checked = 0;
 function check(value) {
   const url = new URL(value, origin);

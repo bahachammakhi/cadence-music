@@ -42,7 +42,7 @@ Preview `site/out` as the root of a static HTTP server. `NEXT_PUBLIC_BASE_PATH` 
 
 ## Publish and maintain
 
-The `Landing page` GitHub workflow builds and validates pull requests, and deploys `main` to GitHub Pages. Pages must use GitHub Actions as its source. The site URL is `https://cadence.bmerce.com/`.
+The `Landing page` GitHub workflow builds and validates pull requests, and deploys `main` to GitHub Pages. Pages must use GitHub Actions as its source. The site URL is `https://cadence.bmerce.net/`.
 
 Release URLs, versions and FAQ copy live in `site/lib/site.ts` and `site/app/page.tsx`; update them when distribution changes. Screenshots in `site/public/images` are optimized copies of the reviewed originals under `docs/screenshots`. Refresh both the preview and its version caption together. Preserve notices for bundled fonts and the adapted shadcn component.
 
@@ -54,7 +54,7 @@ XcodeGen regeneration left the native project and app plists unchanged. No nativ
 
 ## Cloudflare custom domain
 
-GitHub Pages must have `cadence.bmerce.com` set as its custom domain before adding DNS. In the Cloudflare `bmerce.com` zone, add a CNAME named `cadence` targeting `bahachammakhi.github.io`, with DNS only (gray cloud) and TTL Auto. The target is a hostname with no protocol or repository path. A custom GitHub Actions Pages workflow does not require a CNAME file in the artifact.
+GitHub Pages must have `cadence.bmerce.net` set as its custom domain before adding DNS. In the Cloudflare `bmerce.net` zone, add a CNAME named `cadence` targeting `bahachammakhi.github.io`, with DNS only (gray cloud) and TTL Auto. The target is a hostname with no protocol or repository path. A custom GitHub Actions Pages workflow does not require a CNAME file in the artifact.
 
 After DNS resolves, GitHub provisions the certificate. Enable Enforce HTTPS when available. DNS propagation and certificate provisioning can take up to 24 hours. Keep the record DNS only during this setup so GitHub can validate the hostname directly.
 
