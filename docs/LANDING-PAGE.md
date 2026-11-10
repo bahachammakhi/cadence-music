@@ -31,17 +31,18 @@ npm ci
 npm run dev
 ```
 
-Open `http://127.0.0.1:3000`. Use `npm run build` for a static export in `site/out`, and `npm run typecheck` for TypeScript checks. To reproduce the GitHub project URL locally:
+Open `http://127.0.0.1:3000`. Use `npm run build` for a static export in `site/out`, and `npm run typecheck` for TypeScript checks. Production is served at the custom domain root. Build and check it with:
 
 ```sh
-NEXT_PUBLIC_BASE_PATH=/cadence-music npm run build
+npm run build
+npm run check:export
 ```
 
-Preview the exported site under that same subdirectory with a static HTTP server. Check narrow and wide layouts, navigation, FAQ controls, keyboard focus, reduced motion, image loading and download links before publishing. The Next.js 404 is also exported.
+Preview `site/out` as the root of a static HTTP server. `NEXT_PUBLIC_BASE_PATH` remains available for optional subdirectory deployments. Check narrow and wide layouts, navigation, FAQ controls, keyboard focus, reduced motion, image loading and download links before publishing. The Next.js 404 is also exported.
 
 ## Publish and maintain
 
-The `Landing page` GitHub workflow builds and validates pull requests, and deploys `main` to GitHub Pages. Pages must use GitHub Actions as its source. The site URL is `https://bahachammakhi.github.io/cadence-music/`.
+The `Landing page` GitHub workflow builds and validates pull requests, and deploys `main` to GitHub Pages. Pages must use GitHub Actions as its source. The site URL is `https://cadence.bmerce.com/`.
 
 Release URLs, versions and FAQ copy live in `site/lib/site.ts` and `site/app/page.tsx`; update them when distribution changes. Screenshots in `site/public/images` are optimized copies of the reviewed originals under `docs/screenshots`. Refresh both the preview and its version caption together. Preserve notices for bundled fonts and the adapted shadcn component.
 
@@ -50,3 +51,11 @@ Release URLs, versions and FAQ copy live in `site/lib/site.ts` and `site/app/pag
 The production export built successfully with the `/cadence-music` base path and passed TypeScript. npm audit reported no known vulnerabilities. The exported page was checked in the browser at 320, 375, 390, 768, 1024 and 1440 pixels with no horizontal overflow. Image loading and section anchors passed, and the primary action remained in the first 390 × 844 screen. Native FAQ disclosures responded to Enter; the modal navigation responded to Enter/Escape and returned focus to its toggle. An axe-core WCAG 2 A/AA and 2.1 AA scan of revealed content reported zero violations. These automated checks supplement visual review; they do not certify every assistive technology.
 
 XcodeGen regeneration left the native project and app plists unchanged. No native playback or server behavior changes are part of this landing page.
+
+## Cloudflare custom domain
+
+GitHub Pages must have `cadence.bmerce.com` set as its custom domain before adding DNS. In the Cloudflare `bmerce.com` zone, add a CNAME named `cadence` targeting `bahachammakhi.github.io`, with DNS only (gray cloud) and TTL Auto. The target is a hostname with no protocol or repository path. A custom GitHub Actions Pages workflow does not require a CNAME file in the artifact.
+
+After DNS resolves, GitHub provisions the certificate. Enable Enforce HTTPS when available. DNS propagation and certificate provisioning can take up to 24 hours. Keep the record DNS only during this setup so GitHub can validate the hostname directly.
+
+The production workflow builds at `/`, not `/cadence-music`. Canonical and social URLs use the custom domain, and the export check validates those URLs against the generated files.

@@ -3,7 +3,7 @@ export const download = `${repo}/releases/download/v0.7.2/Cadence-Mac-0.7.2-18.z
 export const docs = `${repo}/blob/main/docs`;
 export const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 export const asset = (name: string) => `${basePath}/images/${name}`;
-export const siteUrl = "https://bahachammakhi.github.io/cadence-music/";
+export const siteUrl = "https://cadence.bmerce.com/";
 export const faqs = [
   [
     "Do I need a music server?",

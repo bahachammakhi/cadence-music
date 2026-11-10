@@ -8,7 +8,7 @@
 
 Your music on iPhone and Mac. Your running soundtrack on Apple Watch.
 
-[Visit the Cadence website](https://bahachammakhi.github.io/cadence-music/) · [Download for Mac](https://github.com/bahachammakhi/cadence-music/releases/latest) · [Build from source](docs/BUILDING.md)
+[Visit the Cadence website](https://cadence.bmerce.com/) · [Download for Mac](https://github.com/bahachammakhi/cadence-music/releases/latest) · [Build from source](docs/BUILDING.md)
 
 Cadence is a native SwiftUI client for a music server you control. It focuses on Aurral: browse and play your library, search a wider catalog, import Spotify playlists, and prepare offline playlists for Apple Watch.
 

@@ -2,11 +2,12 @@
 import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 const html = readFileSync("out/index.html", "utf8");
-const prefix = process.env.NEXT_PUBLIC_BASE_PATH || "/cadence-music";
+const prefix = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const origin = "https://cadence.bmerce.com";
 let checked = 0;
 function check(value) {
-  const url = new URL(value, "https://bahachammakhi.github.io");
-  if (url.origin !== "https://bahachammakhi.github.io") return;
+  const url = new URL(value, origin);
+  if (url.origin !== origin) return;
   let path = decodeURIComponent(url.pathname);
   if (path.startsWith(`${prefix}/`)) path = path.slice(prefix.length);
   const file = join("out", path.replace(/^\//, ""));
