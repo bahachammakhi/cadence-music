@@ -93,7 +93,8 @@ export function ScrollEffects() {
         }),
       { rootMargin: "0px 0px -18% 0px", threshold: 1 },
     );
-    words.forEach((word) => {
+    words.forEach((word, index) => {
+      (word as HTMLElement).style.transitionDelay = `${index * 80}ms`;
       word.classList.add("word-pending");
       wordObserver.observe(word);
     });
