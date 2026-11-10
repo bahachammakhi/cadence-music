@@ -20,6 +20,6 @@ External catalog metadata, artwork, previews and recordings remain subject to th
 
 ## Landing page
 
-The separate `site/` web project uses npm dependencies recorded in its lockfile, including Next.js, React, Tailwind CSS, Radix Slot, Class Variance Authority, clsx, tailwind-merge and Phosphor icons. Their licenses remain with their respective authors; package distributions include the applicable notices. They are not dependencies of the native Swift apps.
+The separate `site/` web project uses npm dependencies recorded in its lockfile, including Next.js, React, Tailwind CSS, Radix Slot, Class Variance Authority, clsx, tailwind-merge Phosphor icons and the PostHog JavaScript SDK. Their licenses remain with their respective authors; package distributions include the applicable notices. They are not dependencies of the native Swift apps.
 
 The Button is adapted from [shadcn/ui](https://github.com/shadcn-ui/ui) under MIT; its notice is retained in [site/SHADCN-LICENSE.md](site/SHADCN-LICENSE.md). Manrope is bundled locally under the SIL Open Font License; see [FONT-LICENSE.txt](site/public/FONT-LICENSE.txt). The website uses copies of this project's original brand artwork and reviewed demo screenshots.

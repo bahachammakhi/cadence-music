@@ -1,6 +1,6 @@
 # Cadence landing page
 
-The public site lives in `site/`, separately from the native apps. It uses Next.js App Router, TypeScript, Tailwind CSS and an adapted shadcn/ui Button. Production builds export static files: no server, credentials, cookies, analytics or forms are needed. Manrope is bundled locally rather than fetched from Google at runtime.
+The public site lives in `site/`, separately from the native apps. It uses Next.js App Router, TypeScript, Tailwind CSS and an adapted shadcn/ui Button. Production builds export static files: no application server, account credentials or forms are needed. Website analytics uses PostHog cookieless mode. Manrope is bundled locally rather than fetched from Google at runtime.
 
 ## Design brief
 
@@ -59,3 +59,13 @@ GitHub Pages must have `cadence.bmerce.net` set as its custom domain before addi
 After DNS resolves, GitHub provisions the certificate. Enable Enforce HTTPS when available. DNS propagation and certificate provisioning can take up to 24 hours. Keep the record DNS only during this setup so GitHub can validate the hostname directly.
 
 The production workflow builds at `/`, not `/cadence-music`. Canonical and social URLs use the custom domain, and the export check validates those URLs against the generated files.
+
+## Website analytics
+
+PostHog captures one `$pageview` per page load plus explicit `cadence_download_click`, `cadence_source_click` and `cadence_docs_click` events. Clicks record placement (hero, final CTA, header, footer or content), not page text. Referrers are reduced to domains. Query strings, fragments and unapproved event properties are removed, with a short allowlist for campaign source labels. Counts represent browser events and estimated visitors; blockers, privacy preferences and cookieless estimation affect coverage. A download click does not prove a completed download or app installation.
+
+Copy `site/env.example` to `site/.env.local` and set the public project token and ingestion host from the chosen PostHog project. Both are public browser configuration, not a personal/administrative API key. Production builds read the same names from GitHub Actions repository variables: `NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN` and `NEXT_PUBLIC_POSTHOG_HOST`. Enable cookieless server hashing in that PostHog project before deployment; otherwise PostHog discards cookieless events. Set IP data capture to disabled in that dedicated project.
+
+Collection is limited to the production hostname `cadence.bmerce.net`; localhost and preview hosts do not send analytics. There are no identify calls, session recordings, autocapture, surveys or feature flags. DNT, GPC and the privacy-page opt-out disable collection. Only the opt-out preference uses local storage. See [website privacy](https://cadence.bmerce.net/privacy/) and [PostHog configuration](https://posthog.com/docs/libraries/js/config).
+
+Run `npm run test:analytics` for privacy gates, payload sanitization and intended link classification. The Pages workflow runs those checks, builds and validates the static export, and checks TypeScript. Verify an actual production page view in the selected PostHog project's Web Analytics after deploying. Analytics starts at deployment; it cannot recover earlier visits.

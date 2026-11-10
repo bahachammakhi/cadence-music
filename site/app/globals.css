@@ -1346,3 +1346,35 @@ section {
 .record-label {
   transform: rotate(-12deg);
 }
+
+.privacy-page {
+  max-width: 760px;
+  padding-block: 48px 80px;
+}
+.privacy-page > * + *,
+.privacy-page section {
+  margin-top: 32px;
+}
+.privacy-page h2 {
+  margin-bottom: 16px;
+}
+.privacy-page p a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.privacy-preference {
+  display: grid;
+  justify-items: start;
+  gap: 16px;
+  margin-top: 24px;
+}
+.button:disabled {
+  cursor: default;
+  opacity: 0.65;
+  transform: none;
+}
+@media (max-width: 760px) {
+  .privacy-page .heading-1 {
+    font-size: 48px;
+  }
+}

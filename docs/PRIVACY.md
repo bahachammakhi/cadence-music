@@ -10,7 +10,7 @@ This describes the current source, not the privacy practices of your separately 
 - **Spotify integrations:** playlist links and import settings go through Aurral; the server may need its own Spotify connection. Browser OAuth is handled by the user and provider. Cadence does not include a shared Spotify credential.
 - **Your paired devices:** WatchConnectivity transfers music, metadata, receipts and control state. Private Mac control exchanges encrypted playback state/commands over Tailscale; Bonjour advertises non-secret connection information on the nearby network.
 
-Cadence includes no advertising, analytics or tracking SDK. It has no Cadence cloud account or listening-profile synchronization. This does not prevent your server, operating system, VPN or contacted providers from keeping their own logs.
+The native Cadence apps include no advertising, analytics or tracking SDK. It has no Cadence cloud account or listening-profile synchronization. This does not prevent your server, operating system, VPN or contacted providers from keeping their own logs.
 
 ## On-device storage
 
@@ -31,3 +31,9 @@ No microphone, calendar, health, location or contacts permission is requested by
 ## Reporting safely
 
 Redact server addresses, account names, tokens, passwords, cookies, private pairing links, signed audio URLs and personal artwork/history before sharing logs or screenshots. Never commit `.build`, live test fixtures, Keychain exports or Apple signing files. See [security reporting](../SECURITY.md).
+
+## Public website analytics
+
+The separate landing page at `cadence.bmerce.net` uses PostHog cookieless analytics for page views, approximate visitor counts, referrer domains, browser/device categories and explicit download/source/documentation link clicks. It does not identify users, record sessions, or capture arbitrary interactions. Query strings, fragments, unknown paths and unapproved event properties are removed before capture. Recognized campaign sources are limited to a short allowlist. Browser Do Not Track, Global Privacy Control and a local opt-out preference disable collection.
+
+The website's [privacy page](https://cadence.bmerce.net/privacy/) provides the opt-out control and explains network processing and third-party hosting. Website analytics is separate from music playback, listening history and server credentials. The native apps still have no analytics SDK.

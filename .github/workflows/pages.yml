@@ -27,7 +27,11 @@ jobs:
           cache: npm
           cache-dependency-path: site/package-lock.json
       - run: npm ci
+      - run: npm run test:analytics
       - run: npm run build
+        env:
+          NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN: ${{ vars.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN }}
+          NEXT_PUBLIC_POSTHOG_HOST: ${{ vars.NEXT_PUBLIC_POSTHOG_HOST }}
       - run: npm run check:export
       - run: npm run typecheck
       - uses: actions/upload-pages-artifact@v4

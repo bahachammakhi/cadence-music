@@ -14,7 +14,7 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import { Button } from "@/components/ui/button";
 import { MobileMenu, ScrollEffects } from "@/components/interactions";
-import { asset, docs, download, faqs, repo } from "@/lib/site";
+import { asset, basePath, docs, download, faqs, repo } from "@/lib/site";
 
 function DownloadButton({ secondary = false }: { secondary?: boolean }) {
   return (
@@ -464,7 +464,7 @@ export default function Home() {
         </p>
         <nav aria-label="Footer navigation">
           <a href={`${docs}/BUILDING.md`}>Build from source</a>
-          <a href={`${docs}/PRIVACY.md`}>Privacy</a>
+          <a href={`${basePath}/privacy/`}>Privacy</a>
           <a href={`${repo}/blob/main/LICENSE`}>License & terms</a>
           <a href={`${repo}/issues/new/choose`}>Get in touch</a>
         </nav>
