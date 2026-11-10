@@ -34,7 +34,7 @@ export default function Privacy() {
         <p className="body-3">
           Analytics uses PostHog’s cookieless mode, without analytics cookies or
           persistent browser identifiers. PostHog receives normal network
-          information, including your IP address, to process the request and
+          information, including your IP address and browser user agent, to process the request and
           derive its cookieless visitor estimate. We do not identify visitors by
           name or email, create person profiles, record sessions or capture page
           text and form entries. These are aggregate usage measurements, not

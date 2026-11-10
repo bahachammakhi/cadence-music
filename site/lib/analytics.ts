@@ -27,6 +27,8 @@ const allowedProperties = new Set([
   "$referring_domain",
   "$browser",
   "$browser_version",
+  // Required to compute the cookieless ID; PostHog strips this after hashing.
+  "$raw_user_agent",
   "$os",
   "$os_version",
   "$device_type",

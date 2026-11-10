@@ -51,6 +51,8 @@ test("SDK-enriched events retain routing keys and drop unapproved properties", (
       token: "public-ingestion",
       distinct_id: "cookieless",
       $cookieless_mode: true,
+      $host: "cadence.bmerce.net",
+      $raw_user_agent: "Mozilla/5.0 cookieless verification",
       $current_url: "https://cadence.bmerce.net/?secret=private#private",
       $referrer: "https://example.com/private?email=private",
       $initial_current_url: "private",
@@ -60,6 +62,11 @@ test("SDK-enriched events retain routing keys and drop unapproved properties", (
   });
   assert.equal(result.properties.token, "public-ingestion");
   assert.equal(result.properties.$cookieless_mode, true);
+  assert.equal(result.properties.$host, "cadence.bmerce.net");
+  assert.equal(
+    result.properties.$raw_user_agent,
+    "Mozilla/5.0 cookieless verification",
+  );
   assert.equal(result.properties.$current_url, "https://cadence.bmerce.net/");
   assert.equal(result.properties.$referrer, "https://example.com");
   assert.equal(JSON.stringify(result).includes("private"), false);
