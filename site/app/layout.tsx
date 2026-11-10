@@ -17,7 +17,7 @@ export const metadata: Metadata = {
       "Your library, a little closer. Native music apps for Mac, iPhone and Apple Watch. Bring your own server.",
     images: [
       {
-        url: asset("social.png"),
+        url: new URL("images/social.png", siteUrl).href,
         width: 1200,
         height: 630,
         alt: "Cadence — native music for Mac, iPhone and Apple Watch",

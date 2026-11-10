@@ -30,6 +30,7 @@ jobs:
       - run: npm run build
         env:
           NEXT_PUBLIC_BASE_PATH: /cadence-music
+      - run: npm run check:export
       - run: npm run typecheck
       - uses: actions/upload-pages-artifact@v4
         if: github.event_name != 'pull_request'
