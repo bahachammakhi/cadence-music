@@ -17,3 +17,9 @@ There are no third-party Swift package dependencies in the current package manif
 Aurral, Spotify, Apple Music/iTunes metadata and Tailscale are independently operated projects/services with their own licenses, terms and trademarks. Cadence is an independent client and is not affiliated with or endorsed by them. Aurral server code, provider tools, recordings and provider credentials are not distributed in this repository.
 
 External catalog metadata, artwork, previews and recordings remain subject to their owners' rights and applicable service terms. The MIT license for Cadence does not grant rights to external content or permission to access a source. Configure sources you are authorized to use and avoid redistributing downloaded music or live album-art screenshots as project assets.
+
+## Landing page
+
+The separate `site/` web project uses npm dependencies recorded in its lockfile, including Next.js, React, Tailwind CSS, Radix Slot, Class Variance Authority, clsx, tailwind-merge and Phosphor icons. Their licenses remain with their respective authors; package distributions include the applicable notices. They are not dependencies of the native Swift apps.
+
+The Button is adapted from [shadcn/ui](https://github.com/shadcn-ui/ui) under MIT; its notice is retained in [site/SHADCN-LICENSE.md](site/SHADCN-LICENSE.md). Manrope is bundled locally under the SIL Open Font License; see [FONT-LICENSE.txt](site/public/FONT-LICENSE.txt). The website uses copies of this project's original brand artwork and reviewed demo screenshots.

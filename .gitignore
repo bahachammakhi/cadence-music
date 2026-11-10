@@ -22,3 +22,9 @@ __pycache__/
 .local-config/
 apple-upload.json
 apple.json
+
+# Landing page
+site/node_modules/
+site/.next/
+site/out/
+site/*.tsbuildinfo
